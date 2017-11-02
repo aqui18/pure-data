@@ -10,7 +10,5 @@ import Internal.App (APP)
 main :: forall e. Eff (app :: APP, app :: APP, console :: CONSOLE | e) Unit
 main = do
   app <- A.app
-
-  A.listen app A.Ready (\_ -> do _ <- A.createWindow "index.html" 800 600
-                                 pure unit)
+  A.listen app A.Ready (\_ -> A.createWindow "index.html" 800 600 *> pure unit)
 

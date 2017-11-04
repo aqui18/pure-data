@@ -1,7 +1,10 @@
 module Component.Board where
 
 import Prelude
-import Data.Maybe (Maybe (..))
+
+import DOM.SVG.Attributes (height, viewBox, width, Color (RGB), fill)
+import DOM.SVG.Elements (svg, rect)
+import Data.Maybe (Maybe(..))
 import Halogen as H
 import Halogen.HTML as HH
 import Halogen.HTML.Events as HE
@@ -31,7 +34,9 @@ component =
           initialState = Cursor { x:0, y:0 }
 
           render :: State -> H.ComponentHTML Query
-          render state = HH.div_ []
+          render state = svg [viewBox 0.0 0.0 120.0 120.0] [
+            rect [width 10.0, height 20.0, fill (Just (RGB 255 0 0))] []
+          ]
  
           eval :: Query ~> H.ComponentDSL State Query Void m
           eval = case _ of 

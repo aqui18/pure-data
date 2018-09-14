@@ -5,10 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "psc-package build",
-    "ui": "electron ."
+    "ui": "electron src/"
   },
   "dependencies": {
-    "electron": "^1.7.9",
-    "node-sass": "^4.5.3"
   }
 }
